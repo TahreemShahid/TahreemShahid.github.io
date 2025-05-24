@@ -7,8 +7,8 @@
     <meta name="description"
         content="Portfolio of Tahreem Shahid, Computer Engineering Student and Aspiring Software Developer">
     <title>Tahreem Shahid | Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         <div class="container">
             <h1>TAHREEM SHAHID</h1>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span class="hamburger"></span>
+                <i class="fas fa-bars"></i>
             </button>
             <nav>
                 <ul>
@@ -31,50 +31,57 @@
 
     <main>
         <section id="home" class="hero">
+            <div class="particles"></div>
             <div class="container">
-                <h2>Hi, I'm <span class="highlight">Tahreem Shahid</span></h2>
-                <p class="lead">Computer Engineering Student | Aspiring Software Developer</p>
-                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <div class="hero-content">
+                    <h2>Hi, I'm <span class="highlight">Tahreem Shahid</span></h2>
+                    <p class="lead">Computer Engineering Student | Aspiring Software Developer</p>
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        View My Work
+                    </a>
+                </div>
             </div>
         </section>
 
         <section id="about" class="about">
             <div class="container">
-                <h2 class="section-heading">About Me</h2>
-                <p>I'm Tahreem Shahid, a Computer Engineering student at COMSATS Lahore (Class of 2026) with a passion
-                    for front-end development, mobile apps, and graphic design. I've worked on projects involving
-                    Flutter,
-                    SQL, and Python, and also freelance as a graphic designer. I love solving problems and turning ideas
-                    into
-                    real, usable software.</p>
+                <h2 class="section-heading animate-on-scroll">About Me</h2>
+                <p class="animate-on-scroll">I'm Tahreem Shahid, a Computer Engineering student at COMSATS Lahore (Class
+                    of 2026) with a passion for front-end development, mobile apps, and graphic design. I've worked on
+                    projects involving Flutter, SQL, and Python, and also freelance as a graphic designer. I love
+                    solving problems and turning ideas into real, usable software.</p>
 
                 <div class="about-details">
-                    <div class="about-detail">
+                    <div class="about-detail animate-on-scroll">
                         <i class="fas fa-graduation-cap"></i>
                         <span>COMSATS Lahore (2022-2026)</span>
                     </div>
-                    <div class="about-detail">
+                    <div class="about-detail animate-on-scroll">
                         <i class="fas fa-code"></i>
                         <span>Frontend Development | Mobile Apps</span>
                     </div>
-                    <div class="about-detail">
+                    <div class="about-detail animate-on-scroll">
                         <i class="fas fa-palette"></i>
                         <span>Graphic Design</span>
                     </div>
                 </div>
 
-                <a href="TahreemShahid_Resume.pdf" download="TahreemShahid_Resume.pdf" class="btn btn-primary">
-                    <i class="fas fa-download"></i> Download My Resume
-                </a>
+                <div style="text-align: center;">
+                    <a href="TahreemShahid_Resume.pdf" download="TahreemShahid_Resume.pdf"
+                        class="btn btn-primary animate-on-scroll">
+                        <i class="fas fa-download"></i> Download My Resume
+                    </a>
+                </div>
             </div>
         </section>
 
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="section-heading">My Projects</h2>
+                <h2 class="section-heading animate-on-scroll">My Projects</h2>
 
                 <div class="project-grid">
-                    <article class="project-card">
+                    <article class="project-card animate-on-scroll">
                         <h3>Restaurant Food Delivery App</h3>
                         <p>Designed a normalized SQL database with triggers and procedures for managing restaurant
                             operations.</p>
@@ -85,7 +92,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card animate-on-scroll">
                         <h3>ESP32-Based Multi-Pin IC Tester</h3>
                         <p>Designed a portable embedded system using ESP32 to test 8, 14, and 16-pin DIP ICs with
                             dynamic SD card-based configuration and OLED feedback.</p>
@@ -97,7 +104,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card animate-on-scroll">
                         <h3>NBA Mobile App</h3>
                         <p>Created a cross-platform Flutter app to display NBA stats using RapidAPI with responsive UI.
                         </p>
@@ -108,7 +115,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card animate-on-scroll">
                         <h3>Memory Allocation Visualizer</h3>
                         <p>Built a Python GUI tool to simulate memory allocation techniques.</p>
                         <div class="tech-tags">
@@ -118,7 +125,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card animate-on-scroll">
                         <h3>AC to DC Smart Supply</h3>
                         <p>Engineered a working AC to DC power supply using diodes and voltage regulators.</p>
                         <div class="tech-tags">
@@ -128,7 +135,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card animate-on-scroll">
                         <h3>Pharmacy Management System</h3>
                         <p>Developed an OOP-based C++ system to manage pharmacy inventory and transactions.</p>
                         <div class="tech-tags">
@@ -143,10 +150,10 @@
 
         <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-heading">Contact Me</h2>
+                <h2 class="section-heading animate-on-scroll">Contact Me</h2>
 
                 <div class="contact-container">
-                    <div class="contact-info">
+                    <div class="contact-info animate-on-scroll">
                         <p>I'm always open to discussing new projects, creative ideas or opportunities.</p>
 
                         <div class="contact-details">
@@ -168,7 +175,7 @@
                         </div>
                     </div>
 
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form animate-on-scroll">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required />
@@ -193,13 +200,12 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; <span id="currentYear"></span> Tahreem Shahid. All rights reserved.</p>
+                <p>&copy; <span id="currentYear">2025</span> Tahreem Shahid. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="https://www.linkedin.com/in/tahreem-shahid-23a3712b7/" target="_blank"
                         rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-
                 </div>
             </div>
         </div>
