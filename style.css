@@ -568,11 +568,14 @@ footer {
         flex-direction: column;
         padding: 1rem;
         border-top: 1px solid var(--glass-border);
-        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
     }
 
     nav ul.active {
         display: flex;
+        max-height: 500px;
     }
 
     .nav-link {

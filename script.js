@@ -2,12 +2,25 @@
 document.querySelectorAll('.nav-link, .btn[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
         if (target) {
+            // Close mobile menu if open
+            nav?.classList.remove('active');
+            const icon = mobileMenuBtn?.querySelector('i');
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+
+            // Smooth scroll to target
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
+
+            // Update URL without page reload
+            history.pushState(null, null, targetId);
         }
     });
 });
@@ -128,48 +141,21 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 // Contact form handling
-const contactForm = document.getElementById('contactForm');
-contactForm?.addEventListener('submit', async (e) => {
+contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const formData = new FormData(contactForm);
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-    // Show loading state
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
+    // Format the message for WhatsApp
+    const whatsappMessage = `DETAILS :%0A%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
 
-    try {
-        // Simulate form submission (replace with actual form handling)
-        await new Promise(resolve => setTimeout(resolve, 2000));
+    // Redirect to WhatsApp with the message
+    window.open(`https://wa.me/923134372887?text=${whatsappMessage}`, '_blank');
 
-        // Show success message
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
-        // Reset form
-        contactForm.reset();
-
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
-        }, 3000);
-
-    } catch (error) {
-        // Show error message
-        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to Send';
-        submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
-        }, 3000);
-    }
+    // Reset the form
+    contactForm.reset();
 });
 
 // Enhanced button hover effects
