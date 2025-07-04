@@ -8,6 +8,9 @@
         content="Portfolio of Tahreem Shahid, Computer Engineering Student and Aspiring Software Developer">
     <title>Tahreem Shahid | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,7 +21,7 @@
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul>
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -26,6 +29,9 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" class="btn" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
 
@@ -36,9 +42,11 @@
                 <div class="hero-content">
                     <h2>Hi, I'm <span class="highlight">Tahreem Shahid</span></h2>
                     <p class="lead">Computer Engineering Student | Aspiring Software Developer</p>
+                    <a href="tahreem_resume.pdf" download="Tahreem_Resume.pdf" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download My Resume
+                    </a>
                     <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        View My Work
+                        <i class="fas fa-rocket"></i> View My Work
                     </a>
                 </div>
             </div>
@@ -47,31 +55,33 @@
         <section id="about" class="about">
             <div class="container">
                 <h2 class="section-heading animate-on-scroll">About Me</h2>
-                <p class="animate-on-scroll">I'm Tahreem Shahid, a Computer Engineering student at COMSATS Lahore (Class
-                    of 2026) with a passion for front-end development, mobile apps, and graphic design. I've worked on
-                    projects involving Flutter, SQL, and Python, and also freelance as a graphic designer. I love
-                    solving problems and turning ideas into real, usable software.</p>
-
+                <p class="animate-on-scroll">
+                    I'm Tahreem Shahid, a Computer Engineering student at COMSATS University Islamabad, Lahore Campus (Class of 2026). I have hands-on experience in software development, embedded systems, and creative design, with a technical toolkit spanning C/C++, Python, Dart, SQL, JavaScript, ReactJS, Flutter, and more.
+                </p>
+                <p class="animate-on-scroll">
+                    My journey includes a web development internship, freelance graphic design, and a portfolio of projects in machine learning, IoT, and power electronics. I'm passionate about building impactful solutions and always eager to collaborate on innovative technology.
+                </p>
                 <div class="about-details">
                     <div class="about-detail animate-on-scroll">
                         <i class="fas fa-graduation-cap"></i>
-                        <span>COMSATS Lahore (2022-2026)</span>
+                        <span>BS Computer Engineering, COMSATS Lahore (2022-2026)</span>
                     </div>
                     <div class="about-detail animate-on-scroll">
-                        <i class="fas fa-code"></i>
-                        <span>Frontend Development | Mobile Apps</span>
+                        <i class="fas fa-microchip"></i>
+                        <span>Embedded Systems & IoT</span>
+                    </div>
+                    <div class="about-detail animate-on-scroll">
+                        <i class="fas fa-database"></i>
+                        <span>Database & Backend Design</span>
+                    </div>
+                    <div class="about-detail animate-on-scroll">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Software & App Development</span>
                     </div>
                     <div class="about-detail animate-on-scroll">
                         <i class="fas fa-palette"></i>
-                        <span>Graphic Design</span>
+                        <span>Graphic Design & Creativity</span>
                     </div>
-                </div>
-
-                <div style="text-align: center;">
-                    <a href="tahreem_resume.pdf" download="Tahreem_Resume.pdf"
-                        class="btn btn-primary animate-on-scroll">
-                        <i class="fas fa-download"></i> Download My Resume
-                    </a>
                 </div>
             </div>
         </section>
@@ -79,69 +89,73 @@
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="section-heading animate-on-scroll">My Projects</h2>
-
                 <div class="project-grid">
-                    <article class="project-card animate-on-scroll">
-                        <h3>Restaurant Food Delivery App</h3>
-                        <p>Designed a normalized SQL database with triggers and procedures for managing restaurant
-                            operations.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Database Design</span>
-                        </div>
-                    </article>
-
-                    <article class="project-card animate-on-scroll">
-                        <h3>ESP32-Based Multi-Pin IC Tester</h3>
-                        <p>Designed a portable embedded system using ESP32 to test 8, 14, and 16-pin DIP ICs with
-                            dynamic SD card-based configuration and OLED feedback.</p>
+                    <article class="project-card animate-on-scroll" tabindex="0"
+                        aria-label="ESP-32 Based Multi-pin IC Tester project">
+                        <h3>ESP-32 Based Multi-pin IC Tester</h3>
+                        <p>Developed a portable embedded system using ESP32 for automated testing of 14- and 16-pin DIP
+                            ICs. Features SD card-based pinout/truth table updates, 128x64 OLED interface, button
+                            controls, WiFi-based IC database management, and robust 5V operation via I2C GPIO and level
+                            shifters.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">C/C++</span>
-                            <span class="tech-tag">PlatformIO</span>
-                            <span class="tech-tag">Embedded Systems</span>
+                            <span class="tech-tag">Embedded</span>
+                            <span class="tech-tag">OLED</span>
+                            <span class="tech-tag">WiFi</span>
+                            <span class="tech-tag">SD Card</span>
                         </div>
                     </article>
-
-                    <article class="project-card animate-on-scroll">
-                        <h3>NBA Mobile App</h3>
-                        <p>Created a cross-platform Flutter app to display NBA stats using RapidAPI with responsive UI.
-                        </p>
+                    <article class="project-card animate-on-scroll" tabindex="0"
+                        aria-label="Automated Clothing Classification Using Multi-Layer CNNs project">
+                        <h3>Automated Clothing Classification Using Multi-Layer CNNs</h3>
+                        <p>Designed and implemented a multi-layer Convolutional Neural Network with TensorFlow/Keras to
+                            classify Fashion-MNIST apparel images, achieving 92.2% test accuracy. Built an end-to-end
+                            workflow: automated data preprocessing, optimized training with callbacks, and comprehensive
+                            evaluation and visualization.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">CNN</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                    </article>
+                    <article class="project-card animate-on-scroll" tabindex="0"
+                        aria-label="Restaurant Food Delivery App project">
+                        <h3>Restaurant Food Delivery App</h3>
+                        <p>Designed and implemented a normalized MS SQL Server database with stored procedures,
+                            triggers, and views for efficient order processing and menu management. Ensured relational
+                            integrity and optimized backend queries for smooth food delivery operations.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MS SQL Server</span>
+                            <span class="tech-tag">Database</span>
+                            <span class="tech-tag">Triggers</span>
+                            <span class="tech-tag">Stored Procedures</span>
+                        </div>
+                    </article>
+                    <article class="project-card animate-on-scroll" tabindex="0"
+                        aria-label="Mobile Application of NBA project">
+                        <h3>Mobile Application of NBA</h3>
+                        <p>Developed a cross-platform Flutter app displaying NBA stats, teams, and player data via
+                            RapidAPI, with real-time updates through async API calls. Created a modern, responsive UI
+                            based on professional mockups.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">Mobile</span>
                             <span class="tech-tag">RapidAPI</span>
                         </div>
                     </article>
-
-                    <article class="project-card animate-on-scroll">
-                        <h3>Memory Allocation Visualizer</h3>
-                        <p>Built a Python GUI tool to simulate memory allocation techniques.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Tkinter</span>
-                            <span class="tech-tag">Algorithms</span>
-                        </div>
-                    </article>
-
-                    <article class="project-card animate-on-scroll">
+                    <article class="project-card animate-on-scroll" tabindex="0"
+                        aria-label="AC to DC Smart Supply project">
                         <h3>AC to DC Smart Supply</h3>
-                        <p>Engineered a working AC to DC power supply using diodes and voltage regulators.</p>
+                        <p>Designed and assembled a stable AC to DC power supply using diodes, capacitors, and voltage
+                            regulators, ensuring efficient and safe DC output. Applied circuit theory and tested voltage
+                            levels for optimal component selection.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Electronics</span>
-                            <span class="tech-tag">Circuit Design</span>
+                            <span class="tech-tag">Power Supply</span>
                             <span class="tech-tag">Hardware</span>
-                        </div>
-                    </article>
-
-                    <article class="project-card animate-on-scroll">
-                        <h3>Pharmacy Management System</h3>
-                        <p>Developed an OOP-based C++ system to manage pharmacy inventory and transactions.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">OOP</span>
-                            <span class="tech-tag">File I/O</span>
                         </div>
                     </article>
                 </div>
@@ -151,11 +165,9 @@
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-heading animate-on-scroll">Contact Me</h2>
-
                 <div class="contact-container">
                     <div class="contact-info animate-on-scroll">
                         <p>I'm always open to discussing new projects, creative ideas or opportunities.</p>
-
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
@@ -165,25 +177,16 @@
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span>Lahore, Pakistan</span>
                             </div>
-                            <div class="contact-item">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>+92 313 4372887</span>
-                            </div>
                         </div>
-
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/tahreem-shahid-23a3712b7/" target="_blank"
                                 rel="noopener noreferrer" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://wa.me/923134372887" target="_blank" rel="noopener noreferrer"
-                                aria-label="WhatsApp">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
                         </div>
                     </div>
-
-                    <form id="contactForm" class="contact-form animate-on-scroll">
+                    <form id="contactForm" class="contact-form animate-on-scroll"
+                        action="mailto:tahreemshahid2212@gmail.com" method="POST" enctype="text/plain">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required />
@@ -197,7 +200,7 @@
                             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send via WhatsApp
+                            <i class="fas fa-paper-plane"></i> Send Email
                         </button>
                     </form>
                 </div>
@@ -213,10 +216,6 @@
                     <a href="https://www.linkedin.com/in/tahreem-shahid-23a3712b7/" target="_blank"
                         rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://wa.me/923134372887" target="_blank" rel="noopener noreferrer"
-                        aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>

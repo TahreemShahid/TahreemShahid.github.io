@@ -1,3 +1,72 @@
+// Theme toggle with localStorage persistence
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+function setTheme(dark) {
+  if (dark) {
+    body.classList.add('dark');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.classList.remove('dark');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Initial theme
+const userPref = localStorage.getItem('theme');
+if (userPref === 'dark' || (userPref === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  setTheme(true);
+} else {
+  setTheme(false);
+}
+
+themeToggle.addEventListener('click', () => {
+  setTheme(!body.classList.contains('dark'));
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navUl = document.querySelector('nav ul');
+mobileMenuBtn.addEventListener('click', () => {
+  navUl.classList.toggle('open');
+});
+
+// Smooth scroll for navigation
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (targetId.startsWith('#')) {
+      e.preventDefault();
+      document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      navUl.classList.remove('open'); // Close mobile menu on click
+    }
+  });
+});
+
+// Animate on scroll
+function animateOnScroll() {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  const triggerBottom = window.innerHeight * 0.92;
+  elements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add('visible');
+    } else {
+      el.classList.remove('visible');
+    }
+  });
+}
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+// Set current year in footer
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('.nav-link, .btn[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -6,7 +75,7 @@ document.querySelectorAll('.nav-link, .btn[href^="#"]').forEach(anchor => {
         const target = document.querySelector(targetId);
         if (target) {
             // Close mobile menu if open
-            nav?.classList.remove('active');
+            navUl?.classList.remove('open');
             const icon = mobileMenuBtn?.querySelector('i');
             if (icon) {
                 icon.classList.add('fa-bars');
@@ -105,21 +174,10 @@ window.addEventListener('scroll', () => {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const nav = document.querySelector('nav ul');
-
-mobileMenuBtn?.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    const icon = mobileMenuBtn.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-});
-
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
-        nav?.classList.remove('active');
+        navUl?.classList.remove('open');
         const icon = mobileMenuBtn?.querySelector('i');
         if (icon) {
             icon.classList.add('fa-bars');
@@ -131,7 +189,7 @@ document.addEventListener('click', (e) => {
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        nav?.classList.remove('active');
+        navUl?.classList.remove('open');
         const icon = mobileMenuBtn?.querySelector('i');
         if (icon) {
             icon.classList.add('fa-bars');
@@ -143,18 +201,17 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // Contact form handling
 contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Format the message for WhatsApp
-    const whatsappMessage = `DETAILS :%0A%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-
-    // Redirect to WhatsApp with the message
-    window.open(`https://wa.me/923134372887?text=${whatsappMessage}`, '_blank');
-
-    // Reset the form
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+        alert('Please fill in all the fields.');
+        return;
+    }
+    const subject = encodeURIComponent('Contact from Portfolio');
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=tahreemshahid2212@gmail.com&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
     contactForm.reset();
 });
 
@@ -265,12 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createTypingEffect();
     revealSections();
 
-    // Update current year in footer
-    const currentYearSpan = document.getElementById('currentYear');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
-
     // Add loading animation
     document.body.style.opacity = '0';
     setTimeout(() => {
@@ -314,7 +365,7 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         // Close mobile menu
-        nav?.classList.remove('active');
+        navUl?.classList.remove('open');
         const icon = mobileMenuBtn?.querySelector('i');
         if (icon) {
             icon.classList.add('fa-bars');
